@@ -1,6 +1,6 @@
 <?php
 
-define(APPLICATION_TITLE,'CodeIgniter Project');
+define(APPLICATION_TITLE,'PriceBook');
 define(APPLICATION_VERSION,'1.0');
 define(RESPONSE_TIME_ENABLED,true);
 

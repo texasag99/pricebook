@@ -28,18 +28,11 @@ if($allow_edit){	 ?>
 	<script>
 $(function(){ 
 	$('.editable').editable();
-	$('.editable_status').editable({
-		type: 'select', 
-        source: [
-              {value: 'Active', text: 'Active'},
-              {value: 'Inactive', text: 'Inactive'}
-           ]
-   		 });
-   	});
+});
    </script>
    <?php  }} ?>
 </head>
-<body>
+<body>    
 <div id='message'>
 <?php
 if (RESPONSE_TIME_ENABLED){

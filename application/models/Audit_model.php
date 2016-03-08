@@ -95,13 +95,13 @@ public function get_audit_record($id){
        $audit_data['uri'] = $row->uri;
        $audit_data['controller'] = $row->controller;
        $audit_data['value'] = $row->value;
-		 $audit_data['ip_address'] = $row->ip_address;
-		 $audit_data['http_agent'] = $row->http_agent; 	
-	    $audit_data['http_host_data'] = $row->http_host_data;
-		 $audit_data['environmentals'] = $row->environmentals;
-		 $audit_data['extra_1'] = $row->extra_1; 	
-	    $audit_data['extra_2'] = $row->extra_2; 	
-	    $audit_data['extra_3'] = $row->extra_3;
+       $audit_data['ip_address'] = $row->ip_address;
+       $audit_data['http_agent'] = $row->http_agent; 	
+	   $audit_data['http_host_data'] = $row->http_host_data;
+	   $audit_data['environmentals'] = $row->environmentals;
+       $audit_data['extra_1'] = $row->extra_1; 	
+	   $audit_data['extra_2'] = $row->extra_2; 	
+	   $audit_data['extra_3'] = $row->extra_3;
  	}}else{
   		 return false;
  }

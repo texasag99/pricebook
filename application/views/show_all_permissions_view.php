@@ -142,12 +142,19 @@ echo "<p>$message</p>";
 					$status_indicator = 'info';
 					}	
 	$counter++;
-	echo"<tr><td class='permission_id_column'>".$data->id."</td>";		
+        //Permission "id" column
+	echo"<tr><td class='permission_id_column'>".$data->id."</td>";	
+        //Permission "permission" column
 	echo"<td class='permission_column'><a href='#' class='editable' id='permission' data-type='text' name='permission' data-pk='".$data->id."' data-url='".base_url()."Permissions/postValue/".$data->id."/permission' data-title='Enter permission name'>".$data->permission."</a></td>";
+        //Permission "description" column
 	echo"<td class='permission_description_column'><a href='#' class='editable' id='description' data-type='text' name='description' data-pk='".$data->id."' data-url='".base_url()."Permissions/postValue/".$data->id."/description' data-title='Enter Description'>".$data->description."</a></td>";
+        //Permission "status" column
 	echo"<td class='permission_status_column'><a href='#' id='status' class='status_editable_".$counter."' data-type='select' name='status' data-pk='".$data->id."' data-url='".base_url()."Permissions/postValue/".$data->id."/status' data-title='Select Status'><span class='label label-$status_indicator'>".$status."</span></a></td>";
+        //Permission "category" column
 	echo"<td class='permission_category_column'><a href='#' id='category' class='category_editable_".$counter."' data-type='select' name='category' data-pk='".$data->id."' data-url='".base_url()."Permissions/postValue/".$data->id."/category' data-title='Enter Category'>".$data->category."</a></td>";
+        //Permission "created" column
 	echo"<td class='permission_created_column'>".date('m-d-Y', strtotime($data->created))."</td>";
+        //Permission "updated" column
 	echo"<td class='permission_updated_column'>".date('m-d-Y', strtotime($data->last_updated))."</td>";
 		if($allow_edit){
 		?>

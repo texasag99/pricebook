@@ -32,14 +32,10 @@ h1 {
     color: #646b4f !important;
 }
 
-.navbar-brand {
-	color: #646b4f !important;
-}
-
 .btn-default {
     background-image: linear-gradient(to bottom, #fff 0px, #A8B384 100%) !important;
-    color: #646b4f !important;
     border-color: #646b4f !important;
+    colo
 }
 
 .btn-default:hover {
@@ -172,7 +168,7 @@ code {
 #title  .version_number{
 	font-style: italic;
 	font-weight: normal;
-	color: #646b4f;
+	color: rgb(135, 72, 72);
 	font-size: 15px;
 }
 

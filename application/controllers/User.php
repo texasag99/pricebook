@@ -307,7 +307,7 @@ public function ajax_verify($type, $value){
 		switch($type){
 			case 'email':
 			    $value = str_replace("-","@", $value); //because the '@' cannot be passed in the URI, I am using the '-' symbol and replacing it here.
-				 $check = $this->User_model->verify_email($value);
+				   $check = $this->User_model->verify_email($value);
 			    $output['exists'] = $check;
 				echo json_encode($output);
 			break;			

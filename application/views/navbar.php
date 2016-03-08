@@ -16,11 +16,15 @@ $permission = array();
  foreach ($all_permissions as $value){
 			$permission[]= $value->id;				
 		}
+		if(in_array(8005, $permission) ||in_array(9999, $permission)){$view_permission['view_pricing'] = TRUE;}
+		if(in_array(8025, $permission)||in_array(9999,$permission)){$view_permission['view_packaging'] = TRUE;}
+		if($view_permission['view_pricing']||$view_permission['view_packaging']){$view_permission['view_pricing_menu'] = TRUE;}
+		
 	if(in_array(9005, $permission) ||in_array(9999, $permission)){$view_permission['view_useradmin'] = TRUE;}
   if(in_array(9030, $permission) ||in_array(9999, $permission)){$view_permission['view_roles'] = TRUE;}
   if(in_array(9050, $permission) ||in_array(9999, $permission)){$view_permission['view_permissions'] = TRUE;}
   if(in_array(9065, $permission) ||in_array(9999, $permission)){$view_permission['view_config'] = TRUE;}
-   if(in_array(9080, $permission) ||in_array(9999, $permission)){$view_permission['view_audit'] = TRUE;}
+  if(in_array(9080, $permission) ||in_array(9999, $permission)){$view_permission['view_audit'] = TRUE;}
   if($view_permission['view_useradmin'] ||$view_permission['view_roles'] ||$view_permission['view_permissions']||$view_permission['view_config']||$view_permission['view_audit']){
 		$view_permission['view_admin'] = TRUE;	}
 }
@@ -53,6 +57,15 @@ $permission = array();
 			  ?>			  
 			  </ul>
 		  </li>
+		  <?php }if($view_permission['view_pricing_menu']){?>
+		  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">PriceBook<span class="caret"></span></a>
+		  		<ul class="dropdown-menu" role="menu">
+		  		<?php
+		  		if($view_permission['view_pricing']){ echo "<li><a href='".base_url()."Pricing'>Pricing</a></li>";}
+		  		if($view_permission['view_packaging']){echo"<li><a href='".base_url()."Packaging'>Packaging</a></li>";}
+			  	?>
+		  		</ul>
+		  	</li>
 		  <?php }else{ echo "  ";}?>	
 	  </ul>
 	  <?php }else{ echo "  ";}?>		 

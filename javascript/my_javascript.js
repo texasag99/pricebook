@@ -5,7 +5,8 @@ $(document).ready(function(){
 	$('#header').fadeTo(4000,0.25); //FADES THE HEADER
    $('#message').delay(10000).slideUp('slow');
    $('input').addClass('form-control'); //ADD CLASS TO FORM INPUTS
-	$('select').addClass('form-control'); //ADD CLASS TO FORM DROPDOWNS
+	$('select').addClass('form-control');
+ //ADD CLASS TO FORM DROPDOWNS
    $('.multi-select').multiselect({
 					buttonWidth: '500px',
 					buttonClass: 'btn btn-default',
@@ -68,7 +69,7 @@ $.fn.existsChecker = function(){//USED TO CHECK IF THE VALUE (EMAIL) ALREADY EXI
 							    var sValue; //this variable is setup to replace the "@" symbol which cannot be passed in the URL.
 							    sValue = selfValue.replace("@","-"); //here is where I replace the "@" with a "-"
 								var url;
-							    url = location.protocol + '//' + location.host + '/CodeIgniter/User/ajax_verify/' + selfType + '/' + sValue ; 
+							    url = location.protocol + '//' + location.host + '/Pricebook/User/ajax_verify/' + selfType + '/' + sValue ; 
 								$.ajax({
 									url: url,
 									type: 'GET',

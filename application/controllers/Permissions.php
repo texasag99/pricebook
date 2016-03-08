@@ -168,7 +168,7 @@ public function show_all_permissions_paginated($sort_by, $pagination_config){
 		$view_data['per_page'] = ($this->uri->segment(5))? $this->uri->segment(5) : $default_pagination;	
 		$view_data['total_records'] = $pagination_config['total_rows'];
 		$view_data['controller']="show_all_permissions_paginated";
-	   $view_data['sort_by'] = $this->uri->segment(3); 
+	    $view_data['sort_by'] = $this->uri->segment(3); 
 		$view_data['allow_add'] = $this->has_permission_to_add();
 		$view_data['allow_delete'] = $this->has_permission_to_delete();
 		$view_data['allow_edit'] = $this->has_permission_to_edit();

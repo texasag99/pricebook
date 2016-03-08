@@ -1,6 +1,6 @@
 <script>
 $(document).ready(function() {
-	if ($(window).width() < 640) {
+	if ($(window).width() < 720) {
 		$(".session_id_column").remove();
 		$(".uri_column").remove();
 		$(".value_column").remove();	
