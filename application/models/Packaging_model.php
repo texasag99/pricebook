@@ -13,7 +13,7 @@ class Packaging_model extends CI_Model {
 	}
 //MODEL FUNCTIONS FOR THE PACKAGING TABLE
 	
-	public function packaging_record_count() {
+public function packaging_record_count() {
 		return $this->db->count_all("pb_packaging");
 	}
 	
@@ -82,7 +82,7 @@ public function get_all_packaging_paginated($limit, $start,$sort_by){
 		return false;	
 	}
 	
-	public function get_active_packaging_paginated($limit, $start,$sort_by){
+public function get_active_packaging_paginated($limit, $start,$sort_by){
 		$this->roles_sort_by($sort_by);
 		$this->db->limit($limit,$start);
 		$this->db->where('status','1');

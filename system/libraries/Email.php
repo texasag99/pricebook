@@ -65,21 +65,21 @@ class CI_Email {
 	 *
 	 * @var	string
 	 */
-	public $smtp_host	= 'smtp.webhost4life.com';
+	public $smtp_host	= '';
 
 	/**
 	 * SMTP Username
 	 *
 	 * @var	string
 	 */
-	public $smtp_user	= 'server@threshinglabs.com';
+	public $smtp_user	= '';
 
 	/**
 	 * SMTP Password
 	 *
 	 * @var	string
 	 */
-	public $smtp_pass	= 'H-1Raiders#99';
+	public $smtp_pass	= '';
 
 	/**
 	 * SMTP Server port

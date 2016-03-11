@@ -193,7 +193,7 @@ echo "<p>$message</p>";
 		echo"<td class='pricing_price_column'><a title='All pricing is in US Dollars'>$</a><a href='#' class='editable' id='price' ";
 		echo"data-type='text' title='All pricing is in US Dollars' name='price' data-pk='".$data->id."' ";
 		echo"data-url='".base_url()."Pricing/postValue/".$data->id."/price' ";
-		echo"data-title='Enter Price'>".money_format('%i',$data->price)."</a></td>";
+		echo"data-title='Enter Price'>".number_format($data->price,2,".",",")."</a></td>";
 		//Price "status" column 
 		echo"<td class='pricing_status_column'><a href='#' id='status' ";
 		echo"class='status_editable_".$counter."' data-type='select' name='status' ";

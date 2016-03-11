@@ -213,7 +213,6 @@ public function search_pricing(){
 	
 }
 
-
 public function search_pricing_paginated($search_by,$sort_by, $pagination_config){
 	if ($this->session->userdata('is_logged_in') && $this->has_permission_to_view()){
 		$this->load->helper("url");		
@@ -249,7 +248,6 @@ public function search_pricing_paginated($search_by,$sort_by, $pagination_config
 		      redirect ('User/restricted');	
 			}
 	} 
-    
     
 public function getPricing($id){ 
 				if ($this->session->userdata('is_logged_in') && $this->has_permission_to_view()){
@@ -305,8 +303,16 @@ public function add(){
 		}
 }
 
-public function add_validation(){
+public function add_validation(){    
     if ($this->session->userdata('is_logged_in') && $this->has_permission_to_add()){
+    //*** Format money values, where the decimal is missing or a comma has been added.
+    $_POST['price'] = str_replace(',', '', $_POST['price']);    
+    if(is_numeric($_POST['price'])){$_POST['price'] = number_format($_POST['price'], 2 ,'.', '');}
+    $_POST['fixed_alf'] = str_replace(',', '', $_POST['fixed_alf']);
+    if(is_numeric($_POST['fixed_alf'])){$_POST['fixed_alf'] = number_format($_POST['fixed_alf'], 2,'.','');}
+    $_POST['fixed_integration'] = str_replace(',', '', $_POST['fixed_integration']);
+    if(is_numeric($_POST['fixed_integration'])){ $_POST['fixed_integration'] = number_format($_POST['fixed_integration'], 2,'.','');}
+    //***
 	$audit_value = json_encode($this->input->post());
 	$this->load->library('form_validation');
 	$this->form_validation->set_rules('code', 'Pricing Code', 'required|trim|min_length[4]|max_length[16]|is_unique[pb_pricing.code]');
@@ -378,6 +384,14 @@ public function update($id){
 
 public function update_validation(){
 if ($this->session->userdata('is_logged_in') && $this->has_permission_to_edit()){
+    //*** Format money values, where the decimal is missing or a comma has been added.    
+    $_POST['price'] = str_replace(',', '', $_POST['price']);    
+    if(is_numeric($_POST['price'])){$_POST['price'] = number_format($_POST['price'], 2 ,'.', '');}
+    $_POST['fixed_alf'] = str_replace(',', '', $_POST['fixed_alf']);
+    if(is_numeric($_POST['fixed_alf'])){$_POST['fixed_alf'] = number_format($_POST['fixed_alf'], 2,'.','');}
+    $_POST['fixed_integration'] = str_replace(',', '', $_POST['fixed_integration']);
+    if(is_numeric($_POST['fixed_integration'])){ $_POST['fixed_integration'] = number_format($_POST['fixed_integration'], 2,'.','');}
+    //***
 	$audit_value = json_encode($this->input->post());
     $id = $this->input->post('id');	
 	$this->load->library('form_validation');
@@ -432,9 +446,20 @@ public function postValue($id, $column){	//FOR INLINE EDITS
    $audit_value = json_encode($this->input->post());	
 	$this->load->library('form_validation');
 	if($column=='description'){$this->form_validation->set_rules('value', 'Description', 'trim|xss_clean|max_length[200]');}
-	if($column=='price'){	$this->form_validation->set_rules('value', 'Price', 'required|decimal');}
-	if($column=='fixed_alf'){	$this->form_validation->set_rules('value', 'Fixed ALF Amount', 'decimal');}
-	if($column=='fixed_integration'){$this->form_validation->set_rules('value', 'Fixed Integration Amount', 'decimal');}
+	if($column=='price'){
+        $_POST['value'] = str_replace(',', '', $_POST['value']);
+        if(is_numeric($_POST['value'])){$_POST['value'] = number_format($_POST['value'], 2 ,'.', '');}//*** Format money values, where the decimal is missing or a comma has been added.
+        $this->form_validation->set_rules('value', 'Price', 'required|decimal');
+    }
+	if($column=='fixed_alf'){
+        $_POST['value'] = str_replace(',', '', $_POST['value']);
+        if(is_numeric($_POST['value'])){$_POST['value'] = number_format($_POST['value'], 2 ,'.', '');}  //*** Format money values, where the decimal is missing or a comma has been added.
+        $this->form_validation->set_rules('value', 'Fixed ALF Amount', 'decimal');
+    }
+	if($column=='fixed_integration'){
+         $_POST['value'] = str_replace(',', '', $_POST['value']);
+         if(is_numeric($_POST['value'])){$_POST['value'] = number_format($_POST['value'], 2 ,'.', '');}//*** Format money values, where the decimal is missing or a comma has been added.
+        $this->form_validation->set_rules('value', 'Fixed Integration Amount', 'decimal');}
 	 if($column=='category'){$this->form_validation->set_rules('value', 'Category', 'trim|max_length[100]|xss_clean');}
 	 if($column=='integration_flag'){$this->form_validation->set_rules('value', 'Integration Flag', 'required|integer|trim');}
 	 if($column=='alf_flag'){$this->form_validation->set_rules('value', 'ALF Flag', 'required|integer|trim');}
